@@ -23,5 +23,18 @@ namespace npexam
         {
             InitializeComponent();
         }
+        private void LbMail_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MailInfo m = (MailInfo)(sender as ListBox).SelectedItem;
+            //Mail message = client.GetMail(m);
+            //tbFrom.Text = message.From.ToString();
+            //tbTo.Text = tbLogin.Text;
+            //tbSubject.Text = message.Subject;
+            //tbBody.Text = message.TextBody;
+            //foreach (var item in message.Attachments)
+            //{
+            //    lbAttach.Items.Add(item);
+            //}
+        }
     }
 }
