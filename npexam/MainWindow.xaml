@@ -5,33 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:npexam"
         mc:Ignorable="d"
-        Title="MainWindow" Height="448.934" Width="800">
+        Title="MainWindow" Height="455" Width="800" ResizeMode="NoResize">
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="200" Margin="5">
-                <Button Margin="0 0 0 5">Compose</Button>
-                <ListBox Name="lbMail" Height="365" SelectionChanged="LbMail_SelectionChanged">
+                <Button Click="Compose_Click" Margin="0 0 0 5">Compose</Button>
+                <ListBox Name="lbMail" Height="339" SelectionChanged="LbMail_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=UIDL}"/>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=mail.From}"/>
+                                <TextBlock Text="{Binding Path=mail.ReceivedDate}"/>
+                                <TextBlock Text="{Binding Path=mail.Subject}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+                <Button Click="Refresh_Click" Margin="0 5 0 0">Refresh</Button>
             </StackPanel>
             <StackPanel Margin="5" Width="550">
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
                     <Label Width="70">From:</Label>
-                    <TextBox Name="tbFrom" Width="480"></TextBox>
+                    <TextBox IsReadOnly="True" Name="tbFrom" Width="480"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
                     <Label Width="70">To:</Label>
-                    <TextBox Name="tbTo" Width="480"></TextBox>
+                    <TextBox IsReadOnly="True" Name="tbTo" Width="480"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
                     <Label Width="70">Subject:</Label>
-                    <TextBox Name="tbSubject" Width="480"></TextBox>
+                    <TextBox IsReadOnly="True" Name="tbSubject" Width="480"></TextBox>
                 </StackPanel>
-                <TextBox Name="tbBody" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0.4,5" Height="209"></TextBox>
+                <TextBox IsReadOnly="True" Name="tbBody" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0.4,5" Height="209"></TextBox>
                 <ListBox Name="lbAttach" Height="52" Margin="0,5,0.4,5">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -40,8 +45,8 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="btDelete" Width="50" Margin="0 0 10 0">Delete</Button>
-                    <Button Name="btReply" Width="50">Reply</Button>
+                    <Button Click="Delete_Click" Name="btDelete" Width="50" Margin="0 0 10 0">Delete</Button>
+                    <Button Click="Reply_Click" Name="btReply" Width="50">Reply</Button>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

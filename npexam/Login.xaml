@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:npexam"
         mc:Ignorable="d"
-        Title="Login" Height="230" Width="320"
+        Title="Login" MinHeight="230" MinWidth="320" Height="230" Width="320"
         Closed="CloseHandler">
     <StackPanel Margin="35">
         <Label>Email</Label>
-        <TextBox Name="tbEmail"></TextBox>
+        <TextBox Name="tbEmail">testforitstep@gmail.com</TextBox>
         <Label>Password</Label>
-        <PasswordBox Name="tbPassword"></PasswordBox>
+        <PasswordBox Name="tbPassword" Password="Qwerty1!Qwerty1!"></PasswordBox>
         <Button Click="Login_Click" Margin="0 10">Login</Button>
     </StackPanel>
 </Window>

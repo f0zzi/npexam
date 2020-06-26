@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:npexam"
         mc:Ignorable="d"
-        Title="Letter" Height="431.872" Width="577.133">
+        Title="Letter" Height="438.012" Width="577.133" ResizeMode="NoResize">
     <StackPanel Margin="5" Width="550">
         <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
             <Label Width="70">From:</Label>
-            <TextBox Name="tbFrom" Width="480"></TextBox>
+            <TextBox Name="tbFrom" Width="480" IsReadOnly="True"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
             <Label Width="70">To:</Label>
@@ -20,13 +20,7 @@
             <TextBox Name="tbSubject" Width="480"></TextBox>
         </StackPanel>
         <TextBox Name="tbBody" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0.4,5" Height="209"></TextBox>
-        <ListBox Name="lbAttach" Height="52" Margin="0,5,0.4,5">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox Name="lbAttach" Height="52" Margin="0,5,0.4,5"></ListBox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -34,9 +28,9 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="btSend" Width="50">Send</Button>
-            <Button Grid.Column="1" Name="btCancel" Width="50">Cancel</Button>
-            <Button Grid.Column="4" Name="btAttach" Width="50">Attach</Button>
+            <Button Click="Send_Click" Grid.Column="0" Name="btSend" Width="50">Send</Button>
+            <Button Click="Cancel_Click" Grid.Column="1" Name="btCancel" Width="50">Cancel</Button>
+            <Button Click="Attach_Click" Grid.Column="4" Name="btAttach" Width="50">Attach</Button>
         </Grid>
     </StackPanel>
 </Window>

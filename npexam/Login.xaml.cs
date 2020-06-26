@@ -47,8 +47,7 @@ namespace npexam
                 {
                     client.Connect(server);
                     if (client.Connected)
-                        MessageBox.Show("Connected");
-                    //Close();
+                        Close();
                     else
                         MessageBox.Show("Error. Invalid e-mail/password");
                 }
@@ -61,7 +60,17 @@ namespace npexam
 
         private void CloseHandler(object sender, EventArgs e)
         {
+            if (client.Connected)
+            {
+                MainWindow mainWindow = new MainWindow(client);
+                mainWindow.Show();
+            }
+        }
 
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Login_Click(null, null);
         }
     }
 }
